@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="mk">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Резервација на сала</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" />
+    <link rel="stylesheet" href="static/css/animacija.css">
+</head>
+
+<body>
+
+<!--Анимација-->
+<div id="Animacija"></div>
+
+<div class="container py-5">
+    <h2 class="mb-4">Хотел Дрим, Резервација на настан</h2>
+
+    {% with messages = get_flashed_messages(with_categories=true) %}
+      {% if messages %}
+      <div id="flash-poraki">
+        {% for category, message in messages %}
+          <div class="alert alert-{{ category }} mt-3" role="alert">
+            {{ message }}
+          </div>
+        {% endfor %}
+        </div>
+      {% endif %}
+    {% endwith %}
+
+    <form method="POST" action="{{ url_for('rezervacija') }}">
+        <div class="mb-3">
+            <label for="tip_nastan" class="form-label">Тип на настан</label>
+            <select id="tip_nastan" name="tip_nastan" class="form-select" required>
+                <option value="" disabled {% if not request.form.get('tip_nastan') %}selected{% endif %}>Избери тип</option>
+                <option value="Свадба" {% if request.form.get('tip_nastan') == 'Свадба' %}selected{% endif %}>Свадба</option>
+                <option value="Матура" {% if request.form.get('tip_nastan') == 'Матура' %}selected{% endif %}>Матура</option>
+                <option value="Полуматура" {% if request.form.get('tip_nastan') == 'Полуматура' %}selected{% endif %}>Полуматура</option>
+                <option value="Роденден" {% if request.form.get('tip_nastan') == 'Роденден' %}selected{% endif %}>Роденден</option>
+                <option value="Крштевка" {% if request.form.get('tip_nastan') == 'Крштевка' %}selected{% endif %}>Крштевка</option>
+                <option value="Сунет" {% if request.form.get('tip_nastan') == 'Сунет' %}selected{% endif %}>Сунет</option>
+                <option value="Друга свеченост" {% if request.form.get('tip_nastan') == 'Друга свеченост' %}selected{% endif %}>Друга свеченост</option>
+            </select>
+        </div>
+
+        <div class="row mb-3">
+            <div class="col-md-6">
+                <label for="ime" class="form-label">Име</label>
+                <input type="text" class="form-control" id="ime" name="ime" placeholder="Име на нарачател" required value="{{ request.form.get('ime', '') }}" />
+            </div>
+            <div class="col-md-6">
+                <label for="prezime" class="form-label">Презиме</label>
+                <input type="text" class="form-control" id="prezime" name="prezime" placeholder="Презиме на нарачател" required value="{{ request.form.get('prezime', '') }}" />
+            </div>
+        </div>
+
+<div class="mb-3">
+    <label for="drzava" class="form-label">Држава</label>
+    <select id="drzava" name="drzava" class="form-select" required>
+        <option value="" disabled {% if not request.form.get('drzava') %}selected{% endif %}>Избери држава</option>
+        <option value="mk" {% if request.form.get('drzava') == 'mk' %}selected{% endif %}>🇲🇰 Македонија</option>
+        <option value="al" {% if request.form.get('drzava') == 'al' %}selected{% endif %}>🇦🇱 Албанија</option>
+        <option value="rs" {% if request.form.get('drzava') == 'rs' %}selected{% endif %}>🇷🇸 Србија</option>
+        <option value="bg" {% if request.form.get('drzava') == 'bg' %}selected{% endif %}>🇧🇬 Бугарија</option>
+        <option value="gr" {% if request.form.get('drzava') == 'gr' %}selected{% endif %}>🇬🇷 Грција</option>
+        <option value="it" {% if request.form.get('drzava') == 'it' %}selected{% endif %}>🇮🇹 Италија</option>
+        <option value="fr" {% if request.form.get('drzava') == 'fr' %}selected{% endif %}>🇫🇷 Франција</option>
+        <option value="de" {% if request.form.get('drzava') == 'ge' %}selected{% endif %}>🇩🇪 Германија</option>
+        <option value="sw" {% if request.form.get('drzava') == 'sw' %}selected{% endif %}>🇨🇭 Швајцарија</option>
+        <option value="us" {% if request.form.get('drzava') == 'us' %}selected{% endif %}>🇺🇸 САД (Америка)</option>
+    </select>
+</div>
+
+<div class="mb-3">
+    <label for="telefon" class="form-label">Телефонски број</label>
+    <input type="tel" class="form-control" id="telefon" name="telefon"
+        placeholder="Телефонски број за контакт" required
+        value="{{ request.form.get('telefon', '') }}" />
+</div>
+
+<script>
+    const drzava = document.getElementById("drzava");
+    const telefon = document.getElementById("telefon");
+
+    const formati = {
+        mk: { pattern: "\\+389-[0-9]{2}-[0-9]{3}-[0-9]{3}", placeholder: "Пр: +389-70-123-456" },
+        al: { pattern: "\\+355-[0-9]{2}-[0-9]{3}-[0-9]{4}", placeholder: "Пр: +355-78-123-4567" },
+        rs: { pattern: "\\+381-[0-9]{2}-[0-9]{3}-[0-9]{3}", placeholder: "Пр: +381-70-123-456" },
+        bg: { pattern: "\\+391-[0-9]{2}-[0-9]{3}-[0-9]{3}", placeholder: "Пр: +391-87-123-456" },
+        gr: { pattern: "\\+30-[0-9]{3}-[0-9]{3}-[0-9]{4}", placeholder: "Пр: +30-210-123-4567" },
+        it: { pattern: "\\+39-[0-9]{2}-[0-9]{3}-[0-9]{4}", placeholder: "Пр: +39-64-123-4567" },
+        fr: { pattern: "\\+33-[0-9]{2}-[0-9]{3}-[0-9]{4}", placeholder: "Пр: +33-64-123-4567" },
+        de: { pattern: "\\+49-[0-9]{2}-[0-9]{3}-[0-9]{4}", placeholder: "Пр: +49-64-123-4567" },
+        sw: { pattern: "\\+41-[0-9]{2}-[0-9]{3}-[0-9]{4}", placeholder: "Пр: +41-64-123-4567" },
+        us: { pattern: "\\+1-[0-9]{2}-[0-9]{3}-[0-9]{4}", placeholder: "Пр: +1-64-123-4567" }
+    };
+
+    drzava.addEventListener("change", function () {
+        let val = this.value;
+        if (formati[val]) {
+            telefon.setAttribute("pattern", formati[val].pattern);
+            telefon.setAttribute("placeholder", formati[val].placeholder);
+        } else {
+            telefon.removeAttribute("pattern");
+            telefon.setAttribute("placeholder", "Телефонски број за контакт");
+        }
+    });
+</script>
+
+        <div class="mb-3">
+            <label for="broj_gosti" class="form-label">Број на гости</label>
+            <input type="number" class="form-control" id="broj_gosti" name="broj_gosti" min="1" placeholder="Внесете број на гости" required value="{{ request.form.get('broj_gosti', '') }}" />
+        </div>
+
+        <div class="mb-3">
+            <label for="datum" class="form-label">Датум</label>
+            <input type="date" class="form-control" id="datum" name="datum" required value="{{ request.form.get('datum', '') }}" />
+        </div>
+
+        <div class="mb-3">
+            <label for="sala" class="form-label">Избери сала</label>
+            <select id="sala" name="tip_sala" class="form-select" required>
+                <option value="" disabled {% if not request.form.get('tip_sala') %}selected{% endif %}>Избери сала</option>
+                {% for sala in slobodni_sali %}
+                <option value="{{ sala | lower }}" {% if request.form.get('tip_sala') == sala | lower %}selected{% endif %}>{{ sala }}</option>
+                {% endfor %}
+            </select>
+        </div>
+
+        <button type="submit" class="btn btn-custom">Резервирај</button>
+    </form>
+
+<!--Скрипта за бришење на alert пораки после 5 секунди во формата-->
+<script>
+  setTimeout(function() {
+    const flashMessages = document.getElementById('flash-poraki');
+    if (flashMessages) {
+      flashMessages.style.transition = 'opacity 1s ease-out';
+      flashMessages.style.opacity = '0';
+      setTimeout(() => flashMessages.remove(), 1000); 
+    }
+  }, 5000);
+</script>
+
+<script src="static/css/animacija.js"></script>
+
+</div>
+</body>
+</html>
+
