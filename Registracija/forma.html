@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="mk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Форма за регистрација</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Форма за регистрација</h1>
+        <form action="forma.php" method="post">
+            <label for="ime">Име:</label>
+            <input type="text" id="ime" name="ime" required>
+            
+            <label for="prezime">Презиме:</label>
+            <input type="text" id="prezime" name="prezime" required>
+            
+            <label for="email">Емаил:</label>
+            <input type="email" id="email" name="email" required>
+            
+            <label for="telefon">Телефон:</label>
+            <input type="tel" id="telefon" name="telefon" required>
+            
+            <label for="adresa">Адреса:</label>
+            <input type="text" id="adresa" name="adresa" required>
+            
+            <label for="profesija">Професија/Студирање:</label>
+            <input type="text" id="profesija" name="profesija" required>
+            
+            <button type="submit">Поднеси</button>
+        </form>
+    </div>
+</body>
+</html>
