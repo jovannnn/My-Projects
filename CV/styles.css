@@ -1,0 +1,289 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    background: #f0f2f5;
+}
+
+.telo {
+    max-width: 1000px;
+    margin: 50px auto;
+    padding: 20px;
+    background: #fff;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    page-break-after: avoid; 
+}
+
+#cv {
+    display: flex;
+    width: 100%;
+}
+
+aside {
+    width: 30%;
+    padding: 20px;
+    background: #08677e;
+    color: #fff;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+    page-break-after: avoid; 
+}
+
+main {
+    width: 70%;
+    padding: 20px;
+    page-break-after: avoid; 
+}
+
+.profesija{
+    font-size: 18px;
+}
+
+/* За профилна слика стил*/
+.profilnaslika {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.profilnaslika img {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    border: 3px solid #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.profilnaslika input {
+    display: block;
+    margin: 10px auto;
+    padding: 5px;
+    background: #fff;
+    border: none;
+    border-radius: 5px;
+    color: #0073b1;
+    cursor: pointer;
+}
+
+.profilnaslika input:hover {
+    background: #e0e0e0;
+}
+
+/*Главна секција*/
+main section {
+    margin-bottom: 30px;
+}
+
+main section h2 {
+    margin-bottom: 10px;
+    font-size: 1.5em;
+    color: #333;
+    border-bottom: 2px solid #0e5d88;
+    padding-bottom: 5px;
+}
+
+/*Стил на секцијата за едукација*/
+.experience, .edukacija {
+    margin-bottom: 20px;
+}
+
+.experience h3, .edukacija h3 {
+    margin: 0;
+    font-size: 1.2em;
+    color: #555;
+}
+
+.experience p, .edukacija p {
+    margin: 5px 0;
+    color: #777;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+ul li {
+    background: #f4f4f4;
+    margin-bottom: 10px;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    color: #555;
+    transition: all 0.3s ease;
+}
+
+ul li:hover {
+    background: #0073b1;
+    color: #fff;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+button {
+    display: block;
+    width: 100%;
+    padding: 15px;
+    background: #0073b1;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1.2em;
+    margin-top: 20px;
+}
+
+button:hover {
+    background: #005582;
+}
+
+.edukacijaa {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+.edukacijaa .skill {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.edukacija p {
+    margin: 0;
+    padding: 5px 0;
+    font-size: 13px;
+}
+
+.edukacijaa {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    align-items: center;
+    font-size: 1.2em;
+    color: #2ec2cf;
+}
+
+.edukacijaa .empty-star {
+    color: #ddd;
+}
+
+.edukacija-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: #f4f4f4;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.edukacija-section h2 {
+    font-size: 1.5em;
+    color: #333;
+    margin-bottom: 10px;
+    border-bottom: 2px solid #0e5d88;
+    padding-bottom: 5px;
+}
+
+.edukacija-list {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.edukacija-list p {
+    background: #0073b1;
+    color: #fff;
+    padding: 10px 15px;
+    border-radius: 5px;
+    font-size: 1em;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    transition: background 0.3s ease;
+}
+
+.edukacija-list p:hover {
+    background: #005582;
+}
+
+/* За секцијата вештини и хоби */
+.skills-section, .hobbies-section {
+    margin: 20px 0;
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.skills-section h2, .hobbies-section h2 {
+    color: #333;
+    font-size: 24px;
+    border-bottom: 2px solid #007BFF;
+    display: inline-block;
+    padding-bottom: 5px;
+    margin-bottom: 15px;
+}
+
+.skill-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+.skill-name {
+    font-size: 18px;
+    color: #555;
+    flex: 1;
+}
+
+.stars {
+    color: #19bdef;
+    font-size: 18px;
+}
+
+.hobbies-section p {
+    font-size: 18px;
+    color: #555;
+    margin-bottom: 8px;
+}
+
+@media print {
+    .profilnaslika input,
+    button {
+        display: none;
+    }
+
+    html, body {
+        height: 100%;
+    }
+
+    .telo {
+        page-break-after: avoid;
+    }
+
+    #cv {
+        display: block;
+        page-break-after: avoid;
+    }
+
+    aside, main {
+        display: inline-block;
+        vertical-align: top;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
