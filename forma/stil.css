@@ -1,0 +1,172 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  padding: 10px; 
+}
+
+.forma {
+  padding: 20px; 
+  box-shadow: 3px 3px rgb(55, 186, 234), -1em 0 .4em rgb(196, 233, 244);
+  border-radius: 8px;
+  margin-top: 35px;
+  text-align: center;
+  width: 100%; 
+  max-width: 320px; 
+  box-sizing: border-box; 
+  height: auto; 
+}
+
+.logo {
+  width: 55px; 
+  height: auto; 
+  margin-bottom: 75px; 
+  padding: 0; 
+}
+
+.meta {
+  width: 80px; 
+  height: auto; 
+  margin: 10px 0; 
+}
+
+.pole {
+  margin-bottom: 10px; 
+}
+
+.pole input {
+  width: 100%;
+  padding: 10px; 
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  font-size: 16px;
+  outline: none;
+  transition: border-color 0.3s;
+}
+
+.pole input:focus {
+  border-color: #1877f2;
+}
+
+#button {
+  width: 100%;
+  padding: 10px; 
+  background-color: #1877f2;
+  color: white;
+  border: none;
+  border-radius: 50px;
+  font-size: 16px;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+#button:hover {
+  background-color: #145dbf;
+}
+
+.akaunt {
+  display: block;
+  margin-top: 75px; 
+  padding: 9px;
+  font-size: 15px;
+  color: rgb(71, 144, 217);
+  text-decoration: none;
+  border: 1px solid #4cd6f2;
+  border-radius: 50px;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+.linkovi {
+  margin-top: 10px;
+  margin-top:8px;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+.linkovi a {
+  font-size: 12px;
+  color: #65676b;
+  text-decoration: none;
+}
+
+.linkovi a:hover {
+  text-decoration: underline;
+  color: #1877f2;
+}
+
+@media (max-width: 768px) {
+  .forma {
+    padding: 20px; 
+  }
+
+  .logo {
+    width: 70px; 
+    margin-bottom: 45px; 
+  }
+
+  .meta {
+    width: 70px; 
+  }
+
+  .pole input {
+    font-size: 14px; 
+    padding: 8px; 
+  }
+
+  #button {
+    font-size: 14px; 
+  }
+
+  .akaunt {
+    font-size: 14px; 
+  }
+
+  .linkovi a {
+    font-size: 11px; 
+  }
+}
+
+@media (max-width: 480px) {
+  .forma {
+    padding: 15px; 
+  }
+
+  .logo {
+    width: 60px; 
+    margin-bottom: 5px; 
+  }
+
+  .meta {
+    width: 60px; 
+  }
+
+  .pole input {
+    padding: 6px; 
+  }
+
+  #button {
+    padding: 8px; 
+  }
+
+  .akaunt {
+    margin-top: 10px; 
+  }
+}
+
+
+
+
+
+
+

